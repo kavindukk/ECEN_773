@@ -28,7 +28,7 @@ class pendulumController:
         # inner loop PD control
         # F = self.kp_th * (theta_r - theta) - self.kd_th * thetadot
         F = -P.m1*P.g*P.ell*np.sin(theta) - P.b*thetadot - \
-            P.m1*P.ell**2*(-self.kp_th*thetadot - self.kd_th*thetadot)
+            (P.m1*P.ell**2)*(-self.kp_th*theta - self.kd_th*thetadot)
         return F
 
 class zeroCancelingFilter:
